@@ -18,11 +18,22 @@ designed to ship packages to customer
 
 
 ```
-$ lein run inline < input-events > output-events
+;; Read each package from stdin
 
-;; or 
 
-$ lein run async < input-events
+lein run inline-reactive
+(inline)
+mypackage1
+mypackage1 [consumer confirms] shipment
+
+;; or
+lein run inline-reactive < input-events > output-events
+
+```
+
+```
+;; read from input-events filestream
+$ lein run default-reactive < input-events
 (async)
 package-1 shipped
 package-2 shipped
