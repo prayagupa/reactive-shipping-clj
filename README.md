@@ -2,16 +2,38 @@
 
 designed to ship packages to customer
 
-[[https://drive.google.com/file/d/0B9FyLOsn9I34anV4UFJQTWZLYnc/view]]
+![](https://drive.google.com/uc?id=0B9FyLOsn9I34anV4UFJQTWZLYnc)
+
 
 ## Usage
 
+- install `lein`
+- setup `~/.lein/profiles.clj` in case of proxy
+
 ```
-$ lein run inline < input-events > output-events
+{:user                                                                                                                                               {:repository [["artifactory-libs-releases" "https://code.shipping.com/artifactory/libs-release/"]        
+                ["artifactory-libs-snapshot" "https://code.shipping.com/artifactory/libs-snapshot/"]]} 
+}
+```
 
-;; or 
 
-$ lein run async < input-events
+```
+;; Read each package from stdin
+
+
+lein run inline-reactive
+(inline)
+mypackage1
+mypackage1 [consumer confirms] shipment
+
+;; or
+lein run inline-reactive < input-events > output-events
+
+```
+
+```
+;; read from input-events filestream
+$ lein run default-reactive < input-events
 (async)
 package-1 shipped
 package-2 shipped
@@ -32,7 +54,7 @@ package-16 shipped
 
 ## License
 
-Copyright © Prayag
+Copyright © prayagupd
 
 ##  References
 
