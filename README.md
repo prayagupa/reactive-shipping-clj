@@ -7,6 +7,16 @@ designed to ship packages to customer
 
 ## Usage
 
+- install `lein`
+- setup `~/.lein/profiles.clj` in case of proxy
+
+```
+{:user                                                                                                                                               {:repository [["artifactory-libs-releases" "https://code.shipping.com/artifactory/libs-release/"]        
+                ["artifactory-libs-snapshot" "https://code.shipping.com/artifactory/libs-snapshot/"]]} 
+}
+```
+
+
 ```
 $ lein run inline < input-events > output-events
 
@@ -33,7 +43,7 @@ package-16 shipped
 
 ## License
 
-Copyright © Prayag
+Copyright © prayagupd
 
 ##  References
 
